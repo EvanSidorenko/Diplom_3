@@ -41,28 +41,29 @@ public class LoginTests {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
 
-        mainPage.clickLoginIntoAccountButton();
+        ValidatableResponse loginResponse = client.loginUser(UserCredentials.from(user));
+        accessToken = loginResponse.extract().path("accessToken");
 
+        mainPage.clickLoginIntoAccountButton();
         loginPage.inputEmailField(user.getEmail());
         loginPage.inputPasswordField(user.getPassword());
         loginPage.clickSignInButton();
         mainPage.waitForMakeOrderButton();
         mainPage.checkMakeOrderButtonIsVisible();
 
-        ValidatableResponse loginResponse = client.loginUser(UserCredentials.from(user));
-
-        accessToken = loginResponse.extract().path("accessToken");
 
     }
 
     @Test
     @DisplayName("Check the login via \"Personal profile\" button on the main page")
-
     public void checkLoginViaPersonalProfileButtonOnMainPage() {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         registrationPage = new RegistrationPage(driver);
 
+        ValidatableResponse loginResponse = client.loginUser(UserCredentials.from(user));
+        accessToken = loginResponse.extract().path("accessToken");
+
         mainPage.clickPersonalProfileButton();
         mainPage.clickRegisterButton();
         registrationPage.clickSignInButton();
@@ -71,20 +72,18 @@ public class LoginTests {
         loginPage.clickSignInButton();
         mainPage.waitForMakeOrderButton();
         mainPage.checkMakeOrderButtonIsVisible();
-
-        ValidatableResponse loginResponse = client.loginUser(UserCredentials.from(user));
-
-        accessToken = loginResponse.extract().path("accessToken");
 
     }
 
     @Test
     @DisplayName("Check the login via the button in registration form")
-
     public void checkLoginViaButtonInRegistrationForm() {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         registrationPage = new RegistrationPage(driver);
+
+        ValidatableResponse loginResponse = client.loginUser(UserCredentials.from(user));
+        accessToken = loginResponse.extract().path("accessToken");
 
         mainPage.clickPersonalProfileButton();
         mainPage.clickRegisterButton();
@@ -95,18 +94,17 @@ public class LoginTests {
         mainPage.waitForMakeOrderButton();
         mainPage.checkMakeOrderButtonIsVisible();
 
-        ValidatableResponse loginResponse = client.loginUser(UserCredentials.from(user));
-
-        accessToken = loginResponse.extract().path("accessToken");
-
     }
+
     @Test
     @DisplayName("Check the login via the password reset form")
-
     public void checkLoginViaPasswordResetForm() {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         registrationPage = new RegistrationPage(driver);
+
+        ValidatableResponse loginResponse = client.loginUser(UserCredentials.from(user));
+        accessToken = loginResponse.extract().path("accessToken");
 
         mainPage.clickPersonalProfileButton();
         loginPage.clickRecoverPasswordButton();
@@ -116,10 +114,6 @@ public class LoginTests {
         loginPage.clickSignInButton();
         mainPage.waitForMakeOrderButton();
         mainPage.checkMakeOrderButtonIsVisible();
-
-        ValidatableResponse loginResponse = client.loginUser(UserCredentials.from(user));
-
-        accessToken = loginResponse.extract().path("accessToken");
 
     }
 

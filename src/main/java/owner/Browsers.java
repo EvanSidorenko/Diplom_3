@@ -2,5 +2,6 @@ package owner;
 
 public enum Browsers {
     CHROME,
-    YANDEX
+    YANDEX,
+    FIREFOX
 }

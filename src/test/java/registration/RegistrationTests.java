@@ -35,13 +35,13 @@ public class RegistrationTests {
     @Test
     @DisplayName("Check registration with valid user data")
     public void checkRegistrationWithValidData() {
-
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
+        ValidatableResponse loginResponse = client.loginUser(UserCredentials.from(user));
+        accessToken = loginResponse.extract().path("accessToken");
 
         mainPage.clickPersonalProfileButton();
         mainPage.clickRegisterButton();
-
         registrationPage.inputNameField(user.getName());
         registrationPage.inputEmailField(user.getEmail());
         registrationPage.inputPasswordField(user.getPassword());
@@ -50,29 +50,22 @@ public class RegistrationTests {
         loginPage.waitForSignUpButton();
         loginPage.checkSignUpButtonIsVisible();
 
-        ValidatableResponse loginResponse = client.loginUser(UserCredentials.from(user));
-
-        accessToken = loginResponse.extract().path("accessToken");
-
     }
 
     @Test
     @DisplayName("Check registration with invalid password with less than 6 symbols")
     public void checkRegistrationWithIncorrectPassword() {
         MainPage mainPage = new MainPage(driver);
+        ValidatableResponse loginResponse = client.loginUser(UserCredentials.from(user));
+        accessToken = loginResponse.extract().path("accessToken");
 
         mainPage.clickPersonalProfileButton();
         mainPage.clickRegisterButton();
-
         registrationPage.inputNameField(user.getName());
         registrationPage.inputEmailField(user.getEmail());
         registrationPage.inputPasswordField(user.setPassword(RandomStringUtils.randomAlphanumeric(5)));
         registrationPage.clickSignUpButton();
         registrationPage.checkPasswordErrorTextIsDisplayed();
-
-        ValidatableResponse loginResponse = client.loginUser(UserCredentials.from(user));
-
-        accessToken = loginResponse.extract().path("accessToken");
 
     }
 

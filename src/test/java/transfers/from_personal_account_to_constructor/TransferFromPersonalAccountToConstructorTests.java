@@ -65,7 +65,6 @@ public class TransferFromPersonalAccountToConstructorTests {
         mainPage.clickMainLogo();
         mainPage.waitForMakeBurgerText();
         mainPage.checkMakeBurgerTextIsVisible();
-
     }
 
     @After

@@ -1,12 +1,13 @@
 package api_client;
 
+import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
 import urls.ConstantsURLs;
 
 import static io.restassured.RestAssured.given;
-
 public class UserClient extends Client {
 
+    @Step("Create user")
     public ValidatableResponse createUser(User user) {
         return given().log().all()
                 .spec(getSpec())
@@ -16,7 +17,7 @@ public class UserClient extends Client {
                 .then();
 
     }
-
+    @Step("Login user")
     public ValidatableResponse loginUser(UserCredentials credentials) {
         return given().log().all()
                 .spec(getSpec())
@@ -26,7 +27,7 @@ public class UserClient extends Client {
                 .then().log().body();
     }
 
-
+    @Step("Delete user")
     public ValidatableResponse deleteUser(String accessToken) {
         return given().log().all()
                 .header("Authorization", accessToken)

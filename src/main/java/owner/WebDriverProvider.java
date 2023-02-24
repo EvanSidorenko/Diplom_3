@@ -5,6 +5,8 @@ import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 import java.util.function.Supplier;
 
 public class WebDriverProvider implements Supplier<WebDriver> {
@@ -25,7 +27,12 @@ public class WebDriverProvider implements Supplier<WebDriver> {
         if (config.getBrowser().equals(Browsers.CHROME.toString())) {
             WebDriverManager.chromedriver().setup();
             return new ChromeDriver();
-        } else if (config.getBrowser().equals(Browsers.YANDEX.toString())) {
+        }
+        if (config.getBrowser().equals(Browsers.FIREFOX.toString())) {
+            WebDriverManager.firefoxdriver().setup();
+            return new FirefoxDriver();
+        }
+        else if (config.getBrowser().equals(Browsers.YANDEX.toString())) {
             System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
             ChromeOptions options = new ChromeOptions();
             String YBpath = "C:\\Users\\sidor\\AppData\\Local\\Yandex\\YandexBrowser\\Application\\browser.exe";

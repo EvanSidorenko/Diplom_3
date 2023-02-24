@@ -114,31 +114,4 @@ public class MainPage {
         boolean isFillingsTabDisplayed = driver.findElement(fillingsTab).isDisplayed();
         Assert.assertEquals(true, isFillingsTabDisplayed);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
