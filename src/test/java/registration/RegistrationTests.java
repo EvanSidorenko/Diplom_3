@@ -1,9 +1,9 @@
 package registration;
 
-import api_client.User;
-import api_client.UserClient;
-import api_client.UserCredentials;
-import api_client.UserGenerator;
+import api.client.User;
+import api.client.UserClient;
+import api.client.UserCredentials;
+import api.client.UserGenerator;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -12,9 +12,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import owner.WebDriverProvider;
-import page_object_model.LoginPage;
-import page_object_model.MainPage;
-import page_object_model.RegistrationPage;
+import page.object.model.LoginPage;
+import page.object.model.MainPage;
+import page.object.model.RegistrationPage;
 import urls.ConstantsURLs;
 
 public class RegistrationTests {

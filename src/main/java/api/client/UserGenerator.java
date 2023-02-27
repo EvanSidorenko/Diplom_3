@@ -1,4 +1,4 @@
-package api_client;
+package api.client;
 
 import com.github.javafaker.Faker;
 

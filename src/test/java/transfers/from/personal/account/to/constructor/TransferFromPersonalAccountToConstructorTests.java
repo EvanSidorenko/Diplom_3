@@ -1,8 +1,8 @@
-package transfers.from_personal_account_to_constructor;
+package transfers.from.personal.account.to.constructor;
 
-import api_client.User;
-import api_client.UserClient;
-import api_client.UserGenerator;
+import api.client.User;
+import api.client.UserClient;
+import api.client.UserGenerator;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.After;
@@ -10,9 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import owner.WebDriverProvider;
-import page_object_model.LoginPage;
-import page_object_model.MainPage;
-import page_object_model.ProfilePage;
+import page.object.model.LoginPage;
+import page.object.model.MainPage;
+import page.object.model.ProfilePage;
 import urls.ConstantsURLs;
 
 public class TransferFromPersonalAccountToConstructorTests {

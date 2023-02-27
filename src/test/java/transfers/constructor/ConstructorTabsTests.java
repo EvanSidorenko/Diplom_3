@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import owner.WebDriverProvider;
-import page_object_model.MainPage;
+import page.object.model.MainPage;
 import urls.ConstantsURLs;
 
 public class ConstructorTabsTests {

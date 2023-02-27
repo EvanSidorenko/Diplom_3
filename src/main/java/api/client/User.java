@@ -1,4 +1,4 @@
-package api_client;
+package api.client;
 
 public class User {
     private String email;
